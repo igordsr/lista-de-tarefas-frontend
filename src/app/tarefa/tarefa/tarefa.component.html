@@ -1,0 +1,35 @@
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title display-4 mt-2" id="staticBackdropLabel">{{this.title}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeButton></button>
+      </div>
+      <app-toast-notification></app-toast-notification>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <label for="validationDefault03" class="form-label">Nome da Tarefa</label>
+            <input type="text" class="form-control" id="validationDefault03" [(ngModel)]="this.tarefa.nomeDaTarefa"
+              required>
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Custo</label>
+            <input type="number" format="currency" precision="2" class="form-control" id="validationDefault03"
+              [(ngModel)]="this.tarefa.custo" min="0" value="0" step=".01" required>
+          </div>
+          <div class="col-md-8">
+            <label for="validationDefault05" class="form-label">Data Limite</label>
+            <input type="date" class="form-control" id="validationDefault05" [(ngModel)]="this.tarefa.dataLimite"
+              required>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer mt-4">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary" type="button"  (click)="save()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
