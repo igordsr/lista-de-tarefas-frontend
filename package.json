@@ -6,7 +6,8 @@
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --build-optimizer --configuration=production",
     "watch": "ng build --watch --configuration=development",
-    "test": "ng test"
+    "test": "ng test",
+    "gitpages": "ng build --build-optimizer --configuration=production --output-path docs --base-href /lista-de-tarefas-frontend/"
   },
   "private": true,
   "dependencies": {
