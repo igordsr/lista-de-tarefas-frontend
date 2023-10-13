@@ -7,7 +7,7 @@
     "build": "ng build --build-optimizer --configuration=production",
     "watch": "ng build --watch --configuration=development",
     "test": "ng test",
-    "gitpages": "ng build --build-optimizer --configuration=production --output-path docs --base-href /lista-de-tarefas-frontend"
+    "gitpages": "ng build --output-path docs --base-href"
   },
   "private": true,
   "dependencies": {
