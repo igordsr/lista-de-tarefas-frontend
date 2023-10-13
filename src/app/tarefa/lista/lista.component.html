@@ -1,0 +1,40 @@
+<h1 class="display-4 mt-2">Lista de Tarefas</h1>
+<div class="alert alert-success" role="alert" *ngIf="this.alertVisible">
+  Tarefas reordenadas e sincronizadas com o banco de dados com sucesso!
+  <div class="float-end">
+    <i class="bi bi-x-circle hi-icon" style="color: red;" (click)="this.alertVisible = false"></i>
+  </div>
+</div>
+<div class="table-responsive scroller fixTableHead">
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Identificador da tarefa</th>
+        <th scope="col">Nome da tarefa</th>
+        <th scope="col">Custo</th>
+        <th scope="col">Data Limite</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+      <tr cdkDrag cdkDragLockAxis="y" *ngFor="let data of this.tarefas" class="pointer"
+        [ngClass]="{'table-warning':data.custo.valueOf() >= 1000}">
+        <td cdkDragHandle>{{ data.id }}</td>
+        <td cdkDragHandle>{{ data.nomeDaTarefa }}</td>
+        <td cdkDragHandle>{{ data.custo.toString() | currency:'BRL':true:'1.2-2'}}</td>
+        <td cdkDragHandle>{{ data.dataLimite | date:"dd/MM/yyyy"}}</td>
+        <td cdkDragHandle>
+          <i class="bi bi-trash hi-icon" style="color: red;" (click)="submitEvent(action.DELETE, data)"></i>
+          <i class="bi bi-pencil-fill hi-icon" style="color: grey;" (click)="openModalEdit(data)" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="float-end mt-4">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+    (click)="openModalCreate()">Incluir Novo Registro</button>
+</div>
+<app-tarefa [title]="this.modalTitle" [tarefa]="this.tarefaSelecionada"
+  (savedEvent)="this.submitEvent($event)"></app-tarefa>

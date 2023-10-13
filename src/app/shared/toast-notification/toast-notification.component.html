@@ -1,0 +1,22 @@
+<div *ngIf="toastModel.visible">
+  <div class="toast-grid">
+    <div class="alert alert-primary" role="alert" *ngIf="toastModel.type == 'info'">
+      {{toastModel.message}}
+      <div class="float-end">
+        <i class="bi bi-x-circle hi-icon" style="color: red;" (click)="close()"></i>
+      </div>
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="toastModel.type == 'warning'">
+      {{toastModel.message}}
+      <div class="float-end">
+        <i class="bi bi-x-circle hi-icon" style="color: red;" (click)="close()"></i>
+      </div>
+    </div>
+    <div class="alert  alert-danger" role="alert" *ngIf="toastModel.type == 'error'">
+      {{toastModel.message}}
+      <div class="float-end">
+        <i class="bi bi-x-circle hi-icon" style="color: red;" (click)="close()"></i>
+      </div>
+    </div>
+  </div>
+</div>
