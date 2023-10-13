@@ -3,12 +3,19 @@
   font-size: 36px;
   cursor: pointer;
 }
-.fa-facebook:hover,.fa-instagram:hover,.fa-twitter:hover,.fa-linkedin:hover, .fa-twitch:hover {
+
+.fa-facebook:hover,
+.fa-instagram:hover,
+.fa-twitter:hover,
+.fa-linkedin:hover,
+.fa-twitch:hover {
   color: #008000;
 }
+
 .fab {
   color: #000000;
 }
+
 /* footer styling */
 #footer {
   background-color: #808080;
@@ -16,8 +23,12 @@
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
+  height: 0em;
   width: 100%;
-}
+  bottom: 0;
+  position: absolute;
 
+  clear: both;
+  margin-top: 50px;
+  float: left;
+}
